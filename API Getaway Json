@@ -1,0 +1,79 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "A simple API Gateway setup using AWS CloudFormation.",
+  "Resources": {
+    "MyApiGateway": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": "MyApi",
+        "Description": "My sample API Gateway",
+        "FailOnWarnings": true
+      }
+    },
+    "MyApiResource": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": ["MyApiGateway", "RootResourceId"]
+        },
+        "PathPart": "myresource",
+        "RestApiId": {
+          "Ref": "MyApiGateway"
+        }
+      }
+    },
+    "MyApiMethod": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "ResourceId": {
+          "Ref": "MyApiResource"
+        },
+        "RestApiId": {
+          "Ref": "MyApiGateway"
+        },
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{\"statusCode\": 200}"
+          },
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseTemplates": {
+                "application/json": "{\"message\": \"Hello, world!\"}"
+              }
+            }
+          ]
+        },
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseModels": {
+              "application/json": "Empty"
+            }
+          }
+        ]
+      }
+    },
+    "MyApiDeployment": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "MyApiGateway"
+        },
+        "StageName": "prod"
+      },
+      "DependsOn": ["MyApiMethod"]
+    }
+  },
+  "Outputs": {
+    "ApiUrl": {
+      "Description": "URL of the API Gateway",
+      "Value": {
+        "Fn::Sub": "https://${MyApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod/myresource"
+      }
+    }
+  }
+}
