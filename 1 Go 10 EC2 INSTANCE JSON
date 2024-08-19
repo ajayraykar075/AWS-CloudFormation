@@ -1,0 +1,146 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "A CloudFormation template to launch 10 EC2 instances",
+  "Resources": {
+    "Instance1": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance1"
+          }
+        ]
+      }
+    },
+    "Instance2": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance2"
+          }
+        ]
+      }
+    },
+    "Instance3": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance3"
+          }
+        ]
+      }
+    },
+    "Instance4": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance4"
+          }
+        ]
+      }
+    },
+    "Instance5": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance5"
+          }
+        ]
+      }
+    },
+    "Instance6": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance6"
+          }
+        ]
+      }
+    },
+    "Instance7": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance7"
+          }
+        ]
+      }
+    },
+    "Instance8": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance8"
+          }
+        ]
+      }
+    },
+    "Instance9": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance9"
+          }
+        ]
+      }
+    },
+    "Instance10": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "Instance10"
+          }
+        ]
+      }
+    }
+  }
+}
