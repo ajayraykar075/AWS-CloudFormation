@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template to create an SNS topic and an email subscription
+
+Resources:
+  MySNSTopic:
+    Type: 'AWS::SNS::Topic'
+    Properties:
+      TopicName: 'MyTopic'
+      DisplayName: 'My Notification Topic'
+
+  MySNSSubscription:
+    Type: 'AWS::SNS::Subscription'
+    Properties:
+      Protocol: 'email'
+      Endpoint: 'example@example.com'  # Replace with the email address to subscribe
+      TopicArn: !Ref MySNSTopic
+
+  MySNSTopicPolicy:
+    Type: 'AWS::SNS::TopicPolicy'
+    Properties:
+      Topics:
+        - !Ref MySNSTopic
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal: '*'
+            Action: 'SNS:Publish'
+            Resource: !Ref MySNSTopic
+            Condition:
+              IpAddress:
+                aws:SourceIp: '203.0.113.0/24'  # Replace with allowed IP address or CIDR block
