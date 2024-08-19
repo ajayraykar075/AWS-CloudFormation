@@ -1,0 +1,37 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "A simple SNS setup using AWS CloudFormation.",
+  "Resources": {
+    "MySNSTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "My SNS Topic",
+        "TopicName": "MyTopic"
+      }
+    },
+    "MyEmailSubscription": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Endpoint": "example@example.com",
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "MySNSTopic"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "SNSTopicArn": {
+      "Description": "The ARN of the SNS Topic",
+      "Value": {
+        "Ref": "MySNSTopic"
+      }
+    },
+    "SNSTopicName": {
+      "Description": "The name of the SNS Topic",
+      "Value": {
+        "Fn::GetAtt": ["MySNSTopic", "TopicName"]
+      }
+    }
+  }
+}
