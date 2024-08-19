@@ -1,0 +1,20 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "An example CloudFormation template to launch an EC2 instance",
+  "Resources": {
+    "MyEC2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "ImageId": "ami-0abcdef1234567890", // Replace with a valid AMI ID
+        "KeyName": "my-key-pair", // Replace with your key pair name
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "MyEC2Instance"
+          }
+        ]
+      }
+    }
+  }
+}
